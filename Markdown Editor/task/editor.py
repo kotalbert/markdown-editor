@@ -111,6 +111,11 @@ def handle_formatting(command: str) -> None:
             handle_unordered_list()
 
 
+def save_to_file() -> None:
+    with open('output.md', 'w') as f:
+        for item in markdown_list:
+            f.write(item)
+
 def main():
     formatters = ['plain', 'bold', 'italic', 'header', 'link', 'inline-code', 'ordered-list', 'unordered-list',
                   'new-line']
@@ -121,6 +126,7 @@ def main():
             print(f'Available formatters: {' '.join(formatters)}')
             print('Special commands: !help !done')
         elif command == '!done':
+            save_to_file()
             break
         elif command in formatters:
             handle_formatting(command)
