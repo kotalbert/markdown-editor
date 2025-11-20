@@ -1,6 +1,26 @@
+def handle_formatting(command: str) -> None:
+    match command:
+        case 'plain':
+            pass
+        case 'bold':
+            pass
+        case 'italic':
+            pass
+        case 'header':
+            pass
+        case 'link':
+            pass
+        case 'inline-code':
+            pass
+        case 'ordered-list':
+            pass
+        case 'unordered-list':
+            pass
+
+
 def main():
-    formatters = ["plain", "bold", "italic", "header", "link", "inline-code", "ordered-list", "unordered-list",
-                  "new-line"]
+    formatters = ['plain', 'bold', 'italic', 'header', 'link', 'inline-code', 'ordered-list', 'unordered-list',
+                  'new-line']
 
     while True:
         command = input('Choose a formatter: ')
@@ -9,6 +29,8 @@ def main():
             print('Special commands: !help, !done')
         elif command == '!done':
             break
+        elif command in formatters:
+            handle_formatting(command)
         else:
             print('Unknown formatting type or command')
 
