@@ -13,20 +13,66 @@ def handle_plain_text() -> None:
     print_markdown()
 
 
+def handle_bold_text() -> None:
+    bold_text = input('Text: ')
+    markdown_list.append(f'**{bold_text}**')
+    print_markdown()
+
+
+def handle_italic_text() -> None:
+    italic_text = input('Text: ')
+    markdown_list.append(f'*{italic_text}*')
+    print_markdown()
+
+
+def handle_header() -> None:
+    while True:
+        level = int(input('Level: '))
+        if 1 <= level <= 6:
+            break
+        else:
+            print('The level should be within the range of 1 to 6')
+    header_text = input('Text: ')
+    # add a line break before header if it's not the first element
+    if len(markdown_list) > 0:
+        add_new_line()
+    markdown_list.append(f'{"#" * level} {header_text}')
+    add_new_line()
+    print_markdown()
+
+
+def handle_link() -> None:
+    label = input('Label: ')
+    url = input('URL: ')
+    markdown_list.append(f'[{label}]({url})')
+    print_markdown()
+
+
+def handle_inline_code() -> None:
+    code_text = input('Text: ')
+    markdown_list.append(f'`{code_text}`')
+    print_markdown()
+
+
+def add_new_line() -> None:
+    markdown_list.append('\n')
+
 def handle_formatting(command: str) -> None:
     match command:
         case 'plain':
             handle_plain_text()
         case 'bold':
-            pass
+            handle_bold_text()
         case 'italic':
-            pass
+            handle_italic_text()
         case 'header':
-            pass
+            handle_header()
         case 'link':
-            pass
+            handle_link()
         case 'inline-code':
-            pass
+            handle_inline_code()
+        case 'new-line':
+            add_new_line()
         case 'ordered-list':
             pass
         case 'unordered-list':
