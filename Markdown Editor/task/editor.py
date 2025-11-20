@@ -1,7 +1,22 @@
+markdown_list = []
+
+
+def print_markdown() -> None:
+    for item in markdown_list:
+        print(item, end='')
+    print()
+
+
+def handle_plain_text() -> None:
+    plain_text = input('Text: ')
+    markdown_list.append(plain_text)
+    print_markdown()
+
+
 def handle_formatting(command: str) -> None:
     match command:
         case 'plain':
-            pass
+            handle_plain_text()
         case 'bold':
             pass
         case 'italic':
