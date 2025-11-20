@@ -73,6 +73,7 @@ def handle_formatting(command: str) -> None:
             handle_inline_code()
         case 'new-line':
             add_new_line()
+            print_markdown()
         case 'ordered-list':
             pass
         case 'unordered-list':
