@@ -25,8 +25,8 @@ def main():
     while True:
         command = input('Choose a formatter: ')
         if command == '!help':
-            print(f'Available formatters: {', '.join(formatters)}')
-            print('Special commands: !help, !done')
+            print(f'Available formatters: {' '.join(formatters)}')
+            print('Special commands: !help !done')
         elif command == '!done':
             break
         elif command in formatters:
