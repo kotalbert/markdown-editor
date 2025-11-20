@@ -54,6 +54,37 @@ def handle_inline_code() -> None:
     print_markdown()
 
 
+def handle_ordered_list() -> None:
+    while True:
+        try:
+            num_rows = int(input('Number of rows: '))
+            if num_rows <= 0:
+                print('The number of rows should be greater than zero')
+                continue
+            break
+        except ValueError:
+            print('The number of rows should be greater than zero')
+    for i in range(1, num_rows + 1):
+        row_text = input(f'Row #{i}: ')
+        markdown_list.append(f'{i}. {row_text}\n')
+    print_markdown()
+
+
+def handle_unordered_list() -> None:
+    while True:
+        try:
+            num_rows = int(input('Number of rows: '))
+            if num_rows <= 0:
+                print('The number of rows should be greater than zero')
+                continue
+            break
+        except ValueError:
+            print('The number of rows should be greater than zero')
+    for _ in range(num_rows):
+        row_text = input(f'Row #{_ + 1}: ')
+        markdown_list.append(f'* {row_text}\n')
+    print_markdown()
+
 def add_new_line() -> None:
     markdown_list.append('\n')
 
@@ -75,9 +106,9 @@ def handle_formatting(command: str) -> None:
             add_new_line()
             print_markdown()
         case 'ordered-list':
-            pass
+            handle_ordered_list()
         case 'unordered-list':
-            pass
+            handle_unordered_list()
 
 
 def main():
