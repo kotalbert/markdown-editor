@@ -1,14 +1,17 @@
-markdown_string = """\
-# John Lennon
-or ***John Winston Ono Lennon*** was one of *The Beatles*.
-Here are the songs he wrote I like the most:
+def main():
+    formatters = ["plain", "bold", "italic", "header", "link", "inline-code", "ordered-list", "unordered-list",
+                  "new-line"]
 
-* Imagine
-* Norwegian Wood
-* Come Together
-* In My Life
-* ~~Hey Jude~~ (that was *McCartney*)
-"""
+    while True:
+        command = input('Choose a formatter: ')
+        if command == '!help':
+            print(f'Available formatters: {', '.join(formatters)}')
+            print('Special commands: !help, !done')
+        elif command == '!done':
+            break
+        else:
+            print('Unknown formatting type or command')
+
 
 if __name__ == '__main__':
-    print(markdown_string)
+    main()
